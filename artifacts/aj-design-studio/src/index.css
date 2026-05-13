@@ -68,15 +68,15 @@
 }
 
 :root {
-  --background: 60 10% 96%;
+  --background: 0 0% 100%;
   --foreground: 0 0% 10%;
-  --border: 0 0% 85%;
-  --card: 60 10% 96%;
+  --border: 0 0% 90%;
+  --card: 0 0% 100%;
   --card-foreground: 0 0% 10%;
-  --card-border: 0 0% 85%;
-  --sidebar: 60 10% 96%;
+  --card-border: 0 0% 90%;
+  --sidebar: 0 0% 100%;
   --sidebar-foreground: 0 0% 10%;
-  --sidebar-border: 0 0% 85%;
+  --sidebar-border: 0 0% 90%;
   --sidebar-primary: 0 0% 0%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 0 0% 90%;
@@ -112,15 +112,15 @@
 }
 
 .dark {
-  --background: 60 10% 96%;
+  --background: 0 0% 100%;
   --foreground: 0 0% 10%;
-  --border: 0 0% 85%;
-  --card: 60 10% 96%;
+  --border: 0 0% 90%;
+  --card: 0 0% 100%;
   --card-foreground: 0 0% 10%;
-  --card-border: 0 0% 85%;
-  --sidebar: 60 10% 96%;
+  --card-border: 0 0% 90%;
+  --sidebar: 0 0% 100%;
   --sidebar-foreground: 0 0% 10%;
-  --sidebar-border: 0 0% 85%;
+  --sidebar-border: 0 0% 90%;
   --sidebar-primary: 0 0% 0%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 0 0% 90%;

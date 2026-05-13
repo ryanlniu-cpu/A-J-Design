@@ -1,0 +1,156 @@
+import React, { useState } from 'react';
+
+// 主组件
+export default function AJDesignStudio() {
+  const [activePage, setActivePage] = useState('home');
+
+  // 1. 导航栏 - 极简排版
+  const Navbar = () => (
+    <nav className="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-md flex justify-between items-center px-6 py-8 md:px-12">
+      <div 
+        className="text-2xl font-black tracking-tighter cursor-pointer" 
+        onClick={() => setActivePage('home')}
+      >
+        A&J<span className="text-[#DD062F]">.</span>
+      </div>
+      <div className="flex gap-8 text-[10px] font-bold tracking-[0.2em] uppercase">
+        {['home', 'work', 'services', 'contact'].map((item) => (
+          <button 
+            key={item}
+            onClick={() => setActivePage(item)}
+            className={`${activePage === item ? 'text-[#DD062F]' : 'text-gray-400 hover:text-black'} transition-all duration-300`}
+          >
+            {item}
+          </button>
+        ))}
+      </div>
+    </nav>
+  );
+
+  return (
+    <div className="bg-white text-[#1A1A1A] font-sans selection:bg-[#DD062F] selection:text-white transition-colors duration-500">
+      <Navbar />
+
+      {/* --- 首页 (Home): 视觉锤排版 --- */}
+      {activePage === 'home' && (
+        <main className="min-h-screen flex flex-col pt-32 px-6 md:px-12 animate-in fade-in duration-1000">
+          <div className="w-full h-[60vh] md:h-[70vh] bg-[#F2F2F2] overflow-hidden relative group">
+            <img 
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069" 
+              alt="Design Visual Hammer"
+              className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105"
+            />
+            {/* 15% 红色比例应用：图片上的点缀 */}
+            <div className="absolute bottom-8 left-8 bg-[#DD062F] text-white px-4 py-1 text-[10px] font-bold tracking-widest uppercase">
+              New York Based
+            </div>
+          </div>
+          
+          <div className="mt-12 mb-20 flex flex-col md:flex-row justify-between items-start">
+            <h2 className="text-[12vw] md:text-[8vw] font-black leading-[0.85] tracking-tighter">
+              DESIGN <br /> <span className="text-gray-200">MEANS</span> <br /> 
+              <span className="text-[#DD062F]">STRATEGY.</span>
+            </h2>
+            <div className="mt-8 md:mt-0 md:max-w-md">
+              <p className="text-lg font-light leading-relaxed text-gray-500">
+                A&J设计工作室：专为纽约华人老板定制的“务实派”商业设计。
+                好生意，不能输在“面子”上。我们通过设计，让您的产品“卖爆”。
+              </p>
+              <button 
+                onClick={() => setActivePage('contact')}
+                className="mt-8 px-10 py-5 bg-black text-white text-xs font-bold tracking-widest uppercase hover:bg-[#DD062F] transition-all"
+              >
+                Start Your Project —
+              </button>
+            </div>
+          </div>
+        </main>
+      )}
+
+      {/* --- 作品 (Work): 杂志网格 --- */}
+      {activePage === 'work' && (
+        <section className="pt-40 px-6 md:px-12 pb-20 animate-in slide-in-from-bottom-10 duration-700">
+          <h3 className="text-6xl font-black tracking-tighter mb-20">SELECTED WORK<span className="text-[#DD062F]">.</span></h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div className="group cursor-pointer">
+              <div className="aspect-[4/5] bg-[#F2F2F2] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1555529669-e69e730f162b?q=80&w=2070" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              </div>
+              <p className="mt-6 text-[10px] font-bold tracking-widest text-[#DD062F] uppercase">Brand Identity</p>
+              <h4 className="text-2xl font-black mt-2">法拉盛市集餐车：从路边摊到排队王</h4>
+            </div>
+            <div className="group cursor-pointer mt-20">
+              <div className="aspect-[4/5] bg-[#F2F2F2] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              </div>
+              <p className="mt-6 text-[10px] font-bold tracking-widest text-[#DD062F] uppercase">Retail Design</p>
+              <h4 className="text-2xl font-black mt-2">实体老店全面升级：让老客惊喜，让新客进店</h4>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* --- 服务 (Services): 极简列表 --- */}
+      {activePage === 'services' && (
+        <section className="pt-40 px-6 md:px-12 max-w-4xl animate-in fade-in duration-700">
+          <h3 className="text-6xl font-black tracking-tighter mb-12 text-gray-200">SERVICES</h3>
+          <div className="divide-y divide-gray-100">
+            {[
+              { title: "入门首选 · 基础款", price: "$1,200", desc: "适合刚起步的店铺。包含Logo设计、配色规范、门头效果图。" },
+              { title: "人气推荐 · 常规款", price: "$1,800", desc: "适合系统升级。Logo优化、核心主视觉、10款配套辅料。" },
+              { title: "品牌全案设计", price: "Custom", desc: "从命名、标语到完整视觉系统，打造可复制的连锁基因。" }
+            ].map((srv, i) => (
+              <div key={i} className="py-12 group hover:pl-4 transition-all flex justify-between items-center">
+                <div>
+                  <h4 className="text-3xl font-black group-hover:text-[#DD062F] transition-colors">{srv.title}</h4>
+                  <p className="text-gray-400 mt-2 max-w-sm">{srv.desc}</p>
+                </div>
+                <span className="text-2xl font-black">{srv.price}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* --- 联系 (Contact): 纯粹排版 --- */}
+      {activePage === 'contact' && (
+        <section className="pt-40 px-6 md:px-12 pb-20 animate-in fade-in duration-700">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div>
+              <h3 className="text-8xl font-black tracking-tighter mb-12">TALK TO <br /> THE <span className="text-[#DD062F]">AGENT.</span></h3>
+              <div className="space-y-12">
+                <div>
+                  <p className="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-4">Direct Line</p>
+                  <a href="tel:+19296820222" className="text-3xl font-black hover:text-[#DD062F] transition-colors">+1 929-682-0222</a>
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-4">Email</p>
+                  <a href="mailto:ryan.l.niu@gmail.com" className="text-3xl font-black hover:text-[#DD062F] transition-colors">ryan.l.niu@gmail.com</a>
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-4">Web</p>
+                  <p className="text-3xl font-black text-gray-300 italic">nyajdesign.com</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-[#F2F2F2] p-12">
+              <p className="text-sm font-bold tracking-widest mb-8 uppercase">Send a Brief</p>
+              <form className="space-y-8">
+                <input type="text" placeholder="Your Name" className="w-full bg-transparent border-b border-gray-300 py-4 focus:border-[#DD062F] outline-none transition-all" />
+                <input type="email" placeholder="Your Email" className="w-full bg-transparent border-b border-gray-300 py-4 focus:border-[#DD062F] outline-none transition-all" />
+                <textarea placeholder="Your Message" rows="4" className="w-full bg-transparent border-b border-gray-300 py-4 focus:border-[#DD062F] outline-none transition-all"></textarea>
+                <button className="w-full py-5 bg-black text-white text-xs font-bold tracking-widest uppercase hover:bg-[#DD062F] transition-all">Submit Case</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 页脚 */}
+      <footer className="p-12 border-t border-gray-50 flex justify-between text-[10px] font-medium text-gray-400 uppercase tracking-[0.2em]">
+        <span>© 2026 A&J Design Studio</span>
+        <span>NY Based / World Wide</span>
+      </footer>
+    </div>
+  );
+}

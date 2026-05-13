@@ -2,49 +2,99 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <section className="p-6 md:p-16 max-w-6xl mx-auto w-full flex flex-col md:flex-row gap-16 md:gap-24 min-h-[70vh]">
-      <div className="flex-1 md:w-1/2 flex flex-col">
-        <h3 className="text-6xl md:text-8xl font-black mb-8 tracking-tighter uppercase leading-[0.9]">LET'S <br/> TALK <br/> BUSINESS.</h3>
-        <p className="text-xl font-serif text-muted-foreground mb-16 max-w-md">
-          Tell us about your business, your goals, and how we can make you look good. 留下您的联系方式，我们会在24小时内与您联系。
-        </p>
+    <section className="pt-36 px-6 md:px-12 pb-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20">
+        <div>
+          <h3 className="text-6xl md:text-8xl font-black tracking-tighter mb-12 leading-[0.9]">
+            TALK TO <br /> THE{" "}
+            <span className="text-[#DD062F]">AGENT.</span>
+          </h3>
 
-        <div className="space-y-8 mt-auto">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">Studio</p>
-            <p className="text-lg font-bold">123 Bowery, Suite 402<br/>New York, NY 10002</p>
-          </div>
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">Contact</p>
-            <p className="text-lg font-bold">hello@ajdesign.studio<br/>+1 (212) 555-0199</p>
+          <div className="space-y-12">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-4">
+                Direct Line
+              </p>
+              <a
+                href="tel:+19296820222"
+                data-testid="link-phone"
+                className="text-3xl font-black hover:text-[#DD062F] transition-colors duration-200"
+              >
+                +1 929-682-0222
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <p className="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-4">
+                Email
+              </p>
+              <a
+                href="mailto:ryan.l.niu@gmail.com"
+                data-testid="link-email"
+                className="text-3xl font-black hover:text-[#DD062F] transition-colors duration-200 break-all"
+              >
+                ryan.l.niu@gmail.com
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <p className="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-4">
+                Web
+              </p>
+              <p className="text-3xl font-black text-gray-300 italic">
+                nyajdesign.com
+              </p>
+            </motion.div>
           </div>
         </div>
-      </div>
 
-      <div className="flex-1 md:w-1/2">
-        <form className="flex flex-col gap-12" onSubmit={(e) => e.preventDefault()}>
-          <div className="relative border-b-2 border-muted focus-within:border-foreground transition-colors pb-2">
-            <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground block mb-4">Your Name / 您的姓名</label>
-            <input type="text" className="w-full bg-transparent outline-none text-2xl font-bold placeholder:text-muted-foreground/30" placeholder="John Doe / 张三" />
-          </div>
-          
-          <div className="relative border-b-2 border-muted focus-within:border-foreground transition-colors pb-2">
-            <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground block mb-4">Business Type / 行业类型</label>
-            <input type="text" className="w-full bg-transparent outline-none text-2xl font-bold placeholder:text-muted-foreground/30" placeholder="Restaurant, Salon, Retail..." />
-          </div>
-
-          <div className="relative border-b-2 border-muted focus-within:border-foreground transition-colors pb-2">
-            <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground block mb-4">Message / 需求简述</label>
-            <textarea rows={4} className="w-full bg-transparent outline-none text-xl font-serif placeholder:text-muted-foreground/30 resize-none" placeholder="We need a new storefront... / 我们需要重新设计门头..."></textarea>
-          </div>
-
-          <button className="self-start group flex items-center gap-4 text-2xl font-black uppercase tracking-tighter hover:text-muted-foreground transition-colors cursor-pointer">
-            Submit Request 
-            <span className="w-12 h-12 rounded-full border-2 border-foreground group-hover:border-muted-foreground flex items-center justify-center transition-all group-hover:translate-x-2">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </button>
-        </form>
+        <div className="bg-[#F2F2F2] p-10 md:p-12">
+          <p className="text-sm font-bold tracking-widest mb-8 uppercase">
+            Send a Brief
+          </p>
+          <form
+            className="space-y-8"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input
+              type="text"
+              placeholder="Your Name"
+              data-testid="input-name"
+              className="w-full bg-transparent border-b border-gray-300 py-4 text-base outline-none focus:border-[#DD062F] transition-colors duration-200"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              data-testid="input-email"
+              className="w-full bg-transparent border-b border-gray-300 py-4 text-base outline-none focus:border-[#DD062F] transition-colors duration-200"
+            />
+            <textarea
+              placeholder="Your Message"
+              rows={4}
+              data-testid="textarea-message"
+              className="w-full bg-transparent border-b border-gray-300 py-4 text-base outline-none focus:border-[#DD062F] transition-colors duration-200 resize-none"
+            />
+            <button
+              type="submit"
+              data-testid="button-submit"
+              className="w-full py-5 bg-black text-white text-xs font-bold tracking-widest uppercase hover:bg-[#DD062F] transition-all duration-300 cursor-pointer"
+            >
+              Submit Case
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );
