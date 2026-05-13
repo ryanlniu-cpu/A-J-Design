@@ -6,9 +6,9 @@ export default function Home() {
     <main className="min-h-screen flex flex-col pt-28 px-6 md:px-12">
       <div className="w-full h-[60vh] md:h-[70vh] bg-[#F2F2F2] overflow-hidden relative group">
         <img
-          src="https://picsum.photos/seed/ajstudio-hero/2000/1200"
+          src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&q=80&w=2000"
           alt="Design Visual Hammer"
-          className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
         />
         <div className="absolute bottom-8 left-8 bg-[#DD062F] text-white px-4 py-1 text-[10px] font-bold tracking-widest uppercase">
           New York Based
